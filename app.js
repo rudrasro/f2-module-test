@@ -125,7 +125,7 @@ function randomDice() {
             console.log(lives)
             document.querySelector('#lives').innerHTML = lives;
             if ((rollDiceCount === 3 && (attempt === 2 || attempt === 1) && lives === 0 && sum > 10)) {
-                alert("Congratulations! You won the game!");
+                alert(`Congratulations! You won the game! You scored ${sum}`);
                 round3.style.pointerEvents = 'none';
                 round3.style.opacity = '0.5';
                 round3Game.classList.add('hide')
@@ -149,7 +149,7 @@ function randomDice() {
                 totalSum1.innerHTML = '';
                 document.querySelector('#lives').innerHTML = lives;
                 document.querySelector('#attempt').innerHTML = attempt;
-                alert(`You have ${attempt} more attempt left!!!`);
+                alert(`You scored ${sum}!!!! You have ${attempt} more attempt left!!!`);
                 if (attempt === 0) {
                     document.querySelector('.warning').classList.remove('hide');
                     alert('Better luck next time');
