@@ -85,7 +85,7 @@ function moveToRound3(e) {
     round2.parentElement.classList.add('disable');
     round3.style.pointerEvents = "auto";
     round3.style.opacity = '1';
-    round2.parentElement.classList.remove('disable');
+    round3.parentElement.classList.remove('disable');
     round2User.classList.add('hide');
 }
 
@@ -122,7 +122,7 @@ function randomDice() {
             totalSum1.innerHTML = Number(sum);
             rollDiceCount++;
             lives--;
-            console.log(lives)
+            console.log(lives);
             document.querySelector('#lives').innerHTML = lives;
             if ((rollDiceCount === 3 && (attempt === 2 || attempt === 1) && lives === 0 && sum > 10)) {
                 alert(`Congratulations! You won the game! You scored ${sum}`);
@@ -142,6 +142,7 @@ function randomDice() {
                     round3Game.classList.add('hide')
                     grids.classList.remove("hide");
                 }
+                alert(`You scored ${sum}!!!! You have ${attempt} more attempt left!!!`);
                 lives = 3;
                 sum = 0;
                 rollDiceCount = 0;
@@ -149,7 +150,6 @@ function randomDice() {
                 totalSum1.innerHTML = '';
                 document.querySelector('#lives').innerHTML = lives;
                 document.querySelector('#attempt').innerHTML = attempt;
-                alert(`You scored ${sum}!!!! You have ${attempt} more attempt left!!!`);
                 if (attempt === 0) {
                     document.querySelector('.warning').classList.remove('hide');
                     alert('Better luck next time');
@@ -194,8 +194,8 @@ function rollDice(random) {
             default:
                 break;
         }
-        dice.style.animation = "rolling 1s";
-    }, 4050)
+        dice.style.animation = "rolling .5s";
+    })
 }
 roll.addEventListener('click', randomDice);
 
@@ -213,11 +213,13 @@ function finalPage(e) {
 let finalForm = document.querySelector('.final-form')
 finalForm.addEventListener('submit', submitForm);
 let randomDigit = Math.floor(Math.random() * 1000000000000).toString().padStart(12, '0');
-document.querySelector('#coupon').innerHTML = randomDigit;
+localStorage.setItem('users', randomDigit);
+let storeData = localStorage.getItem('users');
+document.querySelector('#coupon').innerHTML = storeData;
 function submitForm(e) {
     e.preventDefault();
 
-    if (document.querySelector('.your-coupon').innerHTML == document.querySelector('.your-coupon').innerHTML) {
+    if (document.querySelector('.your-coupon').value == storeData) {
         document.querySelector('.congratulations').classList.remove('hide');
     }
 }
