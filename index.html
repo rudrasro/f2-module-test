@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Roll the dice and see what luck brings in this exciting online dice game. Play now and experience the thrill of the roll.">
+    <title>Supriyo Rudra FrontEnd 2 Module Test 01/02/2023</title>
+    <link rel="icon" href="./images/logo.png" type="image/png">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container  ">
+        <h1 class="header">Welcome to Dice Game</h1>
+        <div class="grids">
+            <div class="rounds" id="round1">
+                <img id="round1-img" src="./images/round1.jpg" alt="Round 1">
+            </div>
+            <div class="rounds" id="round1">
+                <img id="round2-img" src="./images/round2.jpg" alt="Round 2">
+            </div>
+            <div class="rounds" id="round1">
+                <img id="round3-img" src="./images/round3.jpg" alt="Round 3">
+            </div>
+            <div id="round4-img" class="rounds" id="round1">
+                <img src="./images/round4.jpg" alt="Round 4">
+            </div>
+        </div>
+
+        <!-- Round 1 form -->
+
+        <div class="form-control hide">
+            <form class="form" id="register">
+                <h1 class="form-title">Register</h1>
+                <div class="form-input-group">
+                    <input type="text" class="form-input" id="name" autofocus placeholder="Enter Name">
+                </div>
+                <div class="form-input-group">
+                    <input type="email" class="form-input" id="email" autofocus placeholder="Enter Email">
+                </div>
+                <div class="form-input-group">
+                    <input type="text" class="form-input" id="username" autofocus placeholder="Enter Username">
+                </div>
+                <button class="form-button" type="submit">Continue</button>
+            </form>
+        </div>
+        <!-- Round 2 Show user data -->
+        <div class="user-data-show hide">
+            <div class="user-data-box">
+                <div class="show-name">
+                    Name: <span id="show-name"></span>
+                </div>
+                <div class="show-username">
+                    Username: <span id="show-username"></span>
+                </div>
+                <button class="user-button" type="submit">Continue</button>
+            </div>
+        </div>
+        <!-- Round 3 Dice Game -->
+        <div class="round3-game hide">
+            <div class="score-board">
+                <div>Attempt: <span id="attempt"></span></div>
+                <div>Lives: <span id="lives"></span></div>
+            </div>
+            <div class="warning">
+            </div>
+            <div class="game-container">
+                <div class="dice-game">
+                    <div class="face front"></div>
+                    <div class="face back"></div>
+                    <div class="face top"></div>
+                    <div class="face bottom"></div>
+                    <div class="face right"></div>
+                    <div class="face left"></div>
+                </div>
+                <button class="roll">Roll Dice</button>
+            </div>
+            <div class="score-board2">
+                <div id="passed">
+                    Score: <span id="first-attempt"></span>
+                </div>
+                <div class="total-sum1">Total: <span id="sum1"></span>
+                </div>
+            </div>
+        </div>
+        <!-- Round 4 Congratulations -->
+        <div class="complete  hide">
+            <form class="final-form">
+                <div class="coupon">
+                    <h3>Your coupon: </h3>
+                    <div id="coupon"></div>
+                </div>
+                <div class="enter-coupon">
+                    <input type="text" class="your-coupon" placeholder="Enter coupon">
+                </div>
+                <button type="submit" class="final-submit">Click Here</button>
+            </form>
+            <div class="congratulations hide">
+                <div class="text">
+                    Congratulations You Passed all the levels
+                </div>
+                <img src="./images/congrats.png" alt="congrats" class="congrats-image">
+            </div>
+        </div>
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>

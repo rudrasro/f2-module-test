@@ -1,0 +1,454 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --color-primary: #009579;
+    --color-primary-dark: #007f67;
+    --color-secondary: #252c6a;
+    --color-error: #cc3333;
+    --color-success: #4bb544;
+    --border-radius: 4px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
+
+}
+
+.container {
+    background: linear-gradient(to right, #28313B, #485461, #090947);
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.grids {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    height: 30%;
+    padding: 30px;
+
+}
+
+.rounds {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 5px navy;
+    outline: none;
+    object-fit: cover;
+    transition: 0.2s;
+}
+
+.header {
+    background: linear-gradient(to right, #000000, #434343, #000000);
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.rounds:hover img {
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 0 20px 15px navy;
+    transform: scale(0.22)
+}
+
+.hide {
+    display: none !important;
+}
+
+.rounds.disable img {
+    box-shadow: none;
+}
+
+.rounds.disable:hover img {
+    position: relative;
+    z-index: 1;
+    transform: none
+}
+
+
+/* form control */
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form>*:first-child {
+    margin-top: 0;
+}
+
+.form>*:last-child {
+    margin-bottom: 0;
+}
+
+.form-title {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form-input-group {
+    margin-bottom: 1rem;
+}
+
+.form-input {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: var(--border-radius);
+    border: 1px solid #dddddd;
+    outline: none;
+    background-color: #eeeeee;
+    transition: background 0.2s, border-coloe 0.2s;
+}
+
+.form-input:focus {
+    border-color: var(--color-primary);
+    background: #ffffff;
+}
+
+.form-button {
+    width: 50vw;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+    cursor: pointer;
+    background: var(--color-primary);
+}
+
+.form-button:hover {
+    background: var(--color-primary-dark);
+}
+
+.form-button:active {
+    transform: scale(0.98);
+}
+
+/* Round 2 Show user data */
+
+.user-data-show {
+    width: 100%;
+    height: 60%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-button {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+}
+
+.user-data-box {
+    width: 40%;
+    height: 70%;
+    padding: 20px;
+    border: 1px solid red;
+    line-height: 3rem;
+    background: linear-gradient(to right, #000000, #434343, #000000);
+    color: #ffffff;
+    font-size: large;
+}
+
+.user-data-box span {
+    float: right;
+}
+
+/* Round 3 Dice game */
+.round3-game {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('./images/diceGame.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+.score-board{
+    color: #000000;
+    width: 250px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-radius:30px;
+    background: #ffffff;
+    margin-top: -5%;
+}
+.score-board2{
+    color: #000000;
+    width: 250px;
+    padding: 10px;
+    display: block;
+    justify-content: space-between;
+    border-radius:30px;
+    background: #ffffff;
+    margin-top: 2%;
+}
+.warning{
+    color: var(--color-error)
+}
+.warning2{
+    color: red;
+    text-align: center;
+}
+.game-container{
+    margin-top: 2%;
+    display: grid;
+    place-items: center;
+    width: 250px;
+    padding: 40px 0 30px;
+    border-radius:30px;
+    background-color: #eeeeee;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+#retry{
+    color: #000000;
+    width: 250px;
+    padding:5px;
+    border-radius:30px;
+    background: #ffffff;
+    margin-top: 2%;
+}
+.dice-game {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    transform: rotateX(45deg) rotateY(45deg);
+    animation: rolling 1s;
+    transition: 1s ease;
+}
+
+@keyframes rolling{
+    50%{
+        transform: rotateX(455deg) rotateY(455deg);
+    }
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    transform-style: preserve-3d;
+    border: 5px solid #f6f3f0;
+    background: linear-gradient(14deg, #dddbd8, #fff);
+}
+
+.face::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: #f6f3f0;
+    transform: translateZ(-1px);
+}
+
+.face::after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #131210
+}
+
+.front {
+    transform: translateZ(50px);
+}
+
+.back {
+    transform: rotateX(180deg) translateZ(50px);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(50px);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(50px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(50px);
+}
+
+.front::after {
+    width: 30px;
+    height: 30px;
+    background: #f63330;
+    margin: -15px 0 0 -15px;
+}
+
+.back::after {
+    margin: -35px 0 0 -30px;
+    box-shadow: 40px 0, 0 25px, 40px 25px, 0 50px, 40px 50px;
+}
+
+.top::after {
+    margin: -30px 0 0 -30px;
+    box-shadow: 40px 40px;
+}
+
+.bottom::after {
+    margin: -36px 0 0 -36px;
+    box-shadow: 26px 26px, 52px 52px, 52px 0, 0 52px;
+}
+
+.right::after {
+    margin: -30px 0 0 -30px;
+    box-shadow: 40px 0, 0 40px, 40px 40px ;
+}
+.left::after {
+    margin: -35px 0 0 -35px;
+    box-shadow: 25px 25px, 50px 50px;
+}
+.roll{
+    cursor: pointer;
+    color: #b33951;
+    margin-top: 60px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font: 700 16px 'Montesserate';
+    border: 2px solid #b33951;
+    transition: 0.5s;
+}
+.roll:hover{
+    color: #fff;
+    background: #b33951;
+}
+
+/* Round 4 congratulation */
+
+.complete{
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.final-form, .congratulations{
+    width: 100% ;
+    height: 50%;
+    
+}
+.coupon{
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 2rem;
+
+}
+.final-form {
+    display: block;
+    height: 41vh;
+    border: 1px solid green;
+    line-height: 5vh;
+    text-align: center;
+    border-radius: 20px;
+    background: linear-gradient(to right, #000000,#166D3B );
+}
+.enter-coupon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.your-coupon {
+    display: block;
+    width: 90%;
+    padding: 0.75rem;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: var(--border-radius);
+    border: 1px solid #dddddd;
+    outline: none;
+    background-color: #eeeeee;
+    transition: background 0.2s, border-coloe 0.2s;
+}
+
+.your-coupon:focus {
+    border-color: var(--color-primary);
+    background: #ffffff;
+}
+
+.final-submit{
+    width: 80%;
+    padding: .8rem 1rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+    border: none;
+    margin-top: 4%;
+    border-radius: var(--border-radius);
+    outline: none;
+    cursor: pointer;
+    background: var(--color-primary);
+}
+
+.final-submit {
+    background: var(--color-primary-dark);
+}
+
+.final-submit {
+    transform: scale(0.98);
+}
+
+.congratulations{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    margin-top: -30%;
+}
+.congrats-image{
+    width: 100%;
+    height: 70%;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.text{
+    font-size: large;
+    color:#ffffff;
+    padding: 10px;
+}
+
+
